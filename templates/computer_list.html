@@ -1,0 +1,60 @@
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1 { background-color:aquamarine; }
+        h3 { color:red; }
+    </style>
+    <meta charset="UTF-8">
+    <title>Computer List</title>
+</head>
+<body style="background-color: lightyellow">
+<h1> Computer List </h1>
+<h3> {{ messages }}</h3>
+<a href="{% url 'home' %}"> Back To Home</a>
+<br><br>
+<form method="get" action="{% url 'computer_list' %}">
+    <input type='text' name="q" placeholder="computer_name" >
+{#    <input type='text' name="q" placeholder="cpu">#}
+{#    <input type='text' name="q" placeholder="ram">#}
+{#    <input type='text' name="q" placeholder="graphic">#}
+    <br><br>
+    <button type="submit"> Search </button>
+<ul>
+    {% for computer in computers %}
+        <li> <h2> name {{ computer.computer_name }} price {{ computer.computer_price | intcomma }} Rials </h2> </li>
+        <a href="{% url 'detail_computer' computer.id %}"> Detail Computer </a>
+        <br><br>
+        {% if request.user.is_staff %}
+            <a href="{% url 'delete_computer'  computer.id%}"> Delete Computer</a>
+            <br><br>
+            <a href="{% url 'edit_computer' computer.id %}"> Edit Computer</a>
+        {% endif %}
+      
+
+	
+    {% endfor %}
+
+</ul>
+
+    
+
+<style>
+ 
+    
+    
+    
+button{
+ background-color:#008CBA;
+ color:#fff;
+ padding:10px;
+ border:2px solid black;
+ cursor: pointer;
+}
+ 
+</style>
+
+</body>
+</html>
+

@@ -1,0 +1,54 @@
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <style>
+        h1 { background-color:aquamarine; }
+        h1 { color:red; }
+    </style>
+    <meta charset="UTF-8">
+    <title>Detail Computer</title>
+</head>
+
+<body style="background-color: lightyellow">
+<h1> Detail Computer </h1> 
+<h3> {{ messages }} </h3>
+<br><br>
+<h3> computer name {{ computer.computer_name }} <br><br>
+     cpu           {{ computer.cpu }} <br><br>
+     ram           {{ computer.ram }}<br><br>
+     graphic       {{ computer.graphic }}<br><br>
+    <br><br>
+    price          {{computer.computer_price | intcomma  }} Rials
+</h3>
+<br><br>
+<h1> Comments </h1>
+{% for comment in comments %}
+    {{ comment.username }} : {{ comment.text }} at {{ comment.created_at }}
+    {% empty %}
+    <h3> no comment yet </h3>
+{% endfor %}
+<br><br>
+<button type="submit"> <a href="{% url 'add_computer_comment' computer.id %}"> Add Comment </a> </button>
+
+
+<br><br>
+<button type="submit"><a href="{% url 'computer_list' %}"> Back </a> </button>
+
+   
+
+<style>
+ 
+button{
+ background-color:#008CBA;
+ color:#fff;
+ padding:10px;
+ border:2px solid black;
+ cursor: pointer;
+}
+ 
+</style>
+
+
+</body>
+</html>

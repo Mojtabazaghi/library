@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1 { background-color:aquamarine; }
+    </style>
+    <meta charset="UTF-8">
+    <title>Edit Monitor</title>
+</head>
+<body style="background-color: lightyellow">
+<form method="post">
+    {% csrf_token %}
+    <br><br>
+    <input type="text" id="monitor_name" name="monitor_name" value="{{ monitor.monitor_name }}">
+    <input type="text" id="moniror_price" name="monitor_price" value="{{ monitor.monitor_price }}">
+    <input type="text" id="fullhd" name="fullhd" value="{{ monitor.fullhd }}">
+    <input type="text" id="oled" name="oled" value="{{ monitor.oled }}">
+    <br><br><br>
+{#    <button type="submit"> edit </button>#}
+    <button type="submit" style="background-color:#F00;">Edit</button>
+    
+
+<style>
+ 
+button{
+ background-color:#008CBA;
+ color:#fff;
+ padding:10px;
+ border:2px solid black;
+ cursor: pointer;
+}
+ 
+</style
+    
+    
+</form>
+<br><br>
+<button type="submit"><a href="{% url 'monitor_list' %}"> Back </a> </button>
+
+</body>
+</html>

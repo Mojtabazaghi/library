@@ -1,0 +1,55 @@
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1 { background-color:aquamarine; }
+        h1 { color:red; }
+    </style>
+    <meta charset="UTF-8">
+    <title>Detail Monitor</title>
+</head>
+<body style="background-color: lightyellow">
+<h1> Detail Monitor </h1>
+<h3> {{ messages }}</h3>
+<br><br><br>
+<h3>
+    moniror name {{ monitor.monitor_name }}<br><br>
+    fullhd       {{ monitor.fullhd }}<br><br>
+    oled         {{ monitor.oled }}<br><br>
+    <br><br>
+    price        {{ monitor.monitor_price | intcomma }} Rials
+    
+</h3>
+<br><br>
+<h1> Comments </h1>
+<br><br>
+{% for comment in comments %}
+    {{ comment.username }} : {{ comment.text }} at {{ comment.created_at }}
+{% empty %}
+    <h3>No comments yet</h3>
+{% endfor %}
+
+<br><br>
+<button type="submit"> <a href="{% url 'add_monitor_comment' monitor.id %}"> Add Comment </a>  </button>
+
+<br><br>
+<button type="submit"><a href="{% url 'monitor_list' %}"> Back  </a> </button>
+
+   
+
+<style>
+ 
+button{
+ background-color:#008CBA;
+ color:#fff;
+ padding:10px;
+ border:2px solid black;
+ cursor: pointer;
+}
+ 
+</style>
+
+
+</body>
+</html>

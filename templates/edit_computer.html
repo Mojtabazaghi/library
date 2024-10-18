@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1 { background-color:aquamarine; }
+    </style>
+    <meta charset="UTF-8">
+    <title>Edit Computer </title>
+</head>
+<body style="background-color: lightyellow">
+<form method ='post'>
+    {% csrf_token %}
+    <br><br>
+    <input type="text" id='computer_name' name="computer_name" value="{{ computer.computer_name }}">
+    <input type="text" id="computer_price" name="computer_price" value="{{ computer.computer_price }}">
+    <input type="text" id="cpu" name='cpu' value="{{ computer.cpu }}">
+    <input type="text" id="ram" name="ram" value="{{ computer.ram }}">
+    <input type="text" id="graphic" name="graphic" value="{{ computer.graphic }}">
+    <br><br><br>
+{#    <button type="submit"> edit </button>#}
+    <button type="submit" style="background-color:#F00;">Edit</button>
+    
+
+<style>
+ 
+button{
+ background-color:#008CBA;
+ color:#fff;
+ padding:10px;
+ border:2px solid black;
+ cursor: pointer;
+}
+ 
+</style>
+    
+</form>
+<br><br>
+<button type="submit"><a href="{% url 'computer_list' %}"> Back </a> </button>
+
+</body>
+</html>

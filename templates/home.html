@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1 { background-color:aquamarine; }
+        h3 { color:red; }
+    </style>
+    <meta charset="UTF-8">
+    <title>Shopping</title>
+</head>
+<body style="background-color: lightyellow">
+
+<h1> Welcome To My Shop </h1>
+<h3> {{ messages }}</h3>
+<br><br>
+<a href="{% url 'signup' %}"> Signup </a>     <br><br><br>               <a href="{% url 'signin' %}"> Signin </a>
+<br><br><br>
+<a href="{% url 'computer_list' %}"> Computer List </a>
+<br><br><br>
+<a href="{% url 'monitor_list' %}"> Monitor List </a>
+<br><br><br>
+<a href="{% url 'add_computer' %}"> Add Computer </a>
+<br><br><br>
+<a href="{% url 'add_monitor' %}"> Add Monitor </a>
+<br><br><br>
+<a href="{% url 'signout' %}"> Signout </a>
+<br><br><br>
+<a href="{% url 'about_us' %}"> About Us </a>
+{#<a href="{% url 'edit_computer' computer.computer_name computer.computer_price computer.cpu computer.ram computer.graphic %}"> detail computer </a>#}
+{#<br><br><br>#}
+{#<a href="{% url 'detail_monitor' monitor.monitor_name monitor.monitor_price monitor.fullhd monitor.oled %}"> monitor detail </a>#}
+{#<br><br><br>#}
+
+
+</body>
+</html>
+

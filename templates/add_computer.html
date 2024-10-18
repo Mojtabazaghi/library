@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <style>
+        h1 { background-color:aquamarine; }
+    </style>
+    <meta charset="UTF-8">
+    <title>Add Computer</title>
+</head>
+<body style="background-color: lightyellow">
+<h1> Add Computer </h1>
+<form method="post">
+    {% csrf_token %}
+    {% if request.user.is_staff %}
+        <input type="text" id='computer_name' name="computer_name" placeholder=" name" required>
+        <input type="text" id='computer_price' name='computer_price' placeholder="price" required>
+        <input type="text" id='cpu' name="cpu" placeholder="cpu" required>
+        <input type="text" id='ram' name="ram" placeholder="ram" required>
+        <input type="text" id='graphic' name="graphic" placeholder="graphic" required>
+        <br><br><br>    
+        <button type="submit"> Add </button>
+    {% endif %}
+</form>
+<br><br>
+
+<button type="submit"><a href="{% url 'computer_list' %}"> Go To List </a> </button>
+
+
+
+<style>
+ 
+button{
+ background-color:#008CBA;
+ color:#fff;
+ padding:10px;
+ border:2px solid black;
+ cursor: pointer;
+}
+ 
+</style>
+</body>
+</html>

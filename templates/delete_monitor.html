@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1 { background-color:aquamarine; }
+    </style>
+    <meta charset="UTF-8">
+    <title>Delete Monitor </title>
+</head>
+<body style="background-color: lightyellow"><br><br>
+<h3> Are You Sure Delete This </h3>
+<form method="post">
+    {% csrf_token %} <br><br>
+    <button type="submit" style="background: red"> Remove </button>
+</form>
+<br><br>
+<button type="submit"><a href="{% url 'monitor_list' %}"> Back </a> </button>
+
+
+   
+
+<style>
+ 
+button{
+ background-color:#008CBA;
+ color:#fff;
+ padding:10px;
+ border:2px solid black;
+ cursor: pointer;
+}
+ 
+</style
+
+</body>
+</html>
